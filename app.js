@@ -25,6 +25,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+//To change the default port
+var raw_port = process.env.PORT;
+var port = normalizePort(raw_port || '4000');
+app.set('port', port);
+
+var server=app.listen(port, function () {
+  console.log('Server listening on url: http://localhost:'+port);
+});
+
+
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
