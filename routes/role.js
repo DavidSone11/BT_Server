@@ -5,9 +5,13 @@ module.exports = {
 
     createRole: function (req, res) {
 
-        var roleCode = req.body.rodecode;
+        var roleCode = req.body.roleCode;
 
-        rolemodel.create(roleCode, function (err, result) {
+        var roleobj ={
+            roleCode:roleCode
+        };
+
+        rolemodel.create(roleobj, function (err, result) {
 
             if (err)
                 throw err;
