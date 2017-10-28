@@ -30,10 +30,10 @@ var userobj = {
 
     deleteUser: function (req, res) {
 
-        var id = req.params.id;
+        var id = req.query.id;
 
         usermodel.remove({ _id: id }, function (err) {
-            if (!err) {
+            if (err) {
                 throw err;
             }
             else {

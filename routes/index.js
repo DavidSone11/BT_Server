@@ -18,7 +18,7 @@ router.post('/role/create',roleRoute.createRole);
 
 // routes for user
 router.post('/user/create',userRoute.createUser);
-router.delete('/user/create/:id',userRoute.deleteUser);
+router.delete('/user/create/',userRoute.deleteUser);
 
 
 
